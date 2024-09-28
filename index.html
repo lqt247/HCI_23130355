@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -140,89 +140,4 @@
         </div>
     </form>
 
-    <!-- Slideshows -->
-    <h2 style="text-align:center">Multiple Slideshows</h2>
-
-    <p>Slideshow 1:</p>
-    <div class="slideshow-container">
-        <div class="mySlides">
-            <img src="img_nature_wide.jpg" style="width:100%">
-        </div>
-        <div class="mySlides">
-            <img src="img_snow_wide.jpg" style="width:100%">
-        </div>
-        <div class="mySlides">
-            <img src="img_mountains_wide.jpg" style="width:100%">
-        </div>
-        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-    </div>
-
-    <p>Slideshow 2:</p>
-    <div class="slideshow-container">
-        <div class="mySlides">
-            <img src="img_band_chicago.jpg" style="width:100%">
-        </div>
-        <div class="mySlides">
-            <img src="img_band_la.jpg" style="width:100%">
-        </div>
-        <div class="mySlides">
-            <img src="img_band_ny.jpg" style="width:100%">
-        </div>
-        <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
-    </div>
-
-</div>
-
-<script>
-    // Account Form Functions
-    function togglePassword() {
-        const passwordField = document.getElementById('password');
-        passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
-    }
-
-    function previewImage(event) {
-        const imagePreview = document.getElementById('imagePreview');
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                imagePreview.src = e.target.result;
-                imagePreview.style.display = 'block';
-            }
-            reader.readAsDataURL(file);
-        }
-    }
-
-    function cancelForm() {
-        window.history.back();
-    }
-
-    // Slideshow Functions
-    let slideIndex = [1, 1];
-    let slideId = ["mySlides", "mySlides"];
-    
-    showSlides(1, 0);
-    showSlides(1, 1);
-
-    function plusSlides(n, no) {
-        showSlides(slideIndex[no] += n, no);
-    }
-
-    function showSlides(n, no) {
-        let i;
-        let x = document.getElementsByClassName(slideId[no]);
-        if (n > x.length) { slideIndex[no] = 1; }
-        if (n < 1) { slideIndex[no] = x.length; }
-        
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-        }
-        
-        x[slideIndex[no] - 1].style.display = "block";  
-    }
-</script>
-
-</body>
-</html>
+  
