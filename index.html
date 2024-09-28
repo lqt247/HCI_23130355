@@ -1,12 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            max-width: 600px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .hidden {
+            display: none;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .preview {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+            display: none;
+        }
+        button:disabled {
+            background-color: #ccc;
+        }
+    </style>
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<h2>Create Account</h2>
+<form id="accountForm">
+
+    <label for="username">Username</label>
+    <input type="text" id="username" placeholder="Enter your username." required>
+    <div class="error" id="usernameError"></div>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter your password." required>
+    <button type="button" onclick="togglePassword()">Show/Hide</button>
+    <div class="error" id="passwordError"></div>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="Enter your email." required>
+    <div class="error" id="emailError"></div>
+
+    <label for="fullName">Full Name (optional)</label>
+    <input type="text" id="fullName" placeholder="Enter your full name.">
+
+    <label for="role">Role</label>
+    <select id="role" required>
+        <option value="">Select a role</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+    </select>
+    <div class="error" id="roleError"></div>
+
+    <label for="profilePicture">Profile Picture</label>
+    <input type="file" id="profilePicture" accept="image/*" onchange="previewImage(event)">
+    <input type="url" id="profilePictureUrl" placeholder="Or enter image URL">
+    <img id="imagePreview" class="preview" alt="Image Preview">
+
+    <label>Account Created At</label>
+    <input type="text" id="accountCreatedAt" value="" readonly>
+    
+    <label>Last Updated At</label>
+    <input type="text" id="lastUpdatedAt" value="" readonly>
+
+    <button type="submit" id="submitButton" disabled>Create Account</button>
+    <button type="button" onclick="cancelForm()">Cancel</button>
+</form>
+
+<script>
+    // Placeholder for form validation logic
+    function togglePassword() {
+        const passwordField = document.getElementById('password');
+        passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+    }
+
+    function previewImage(event) {
+        const imagePreview = document.getElementById('imagePreview');
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function cancelForm() {
+        window.history.back();
+    }
+
+    // Add form validation logic here
+</script>
 
 </body>
 </html>
