@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Cá Nhân</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        nav {
+            background-color: #007bff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav li {
+            display: inline;
+            margin-right: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#home" onclick="showSection('home')">Home</a></li>
+        <li><a href="#about" onclick="showSection('about')">About</a></li>
+        <li><a href="#labs" onclick="showSection('labs')">Labs</a></li>
+    </ul>
+</nav>
+
+<div class="content" id="home" style="display: block;">
+    <h2>Trang Chủ</h2>
+    <p>Chào mừng bạn đến với trang web cá nhân của tôi!</p>
+</div>
+
+<div class="content" id="about" style="display: none;">
+    <h2>Thông Tin Về Tôi</h2>
+    <p><strong>Họ tên:</strong> Lê Quang Trường</p>
+    <p><strong>MSSV:</strong> 23130355</p>
+    <p><strong>Lớp:</strong> DH23DTB</p>
+</div>
+
+<div class="content" id="labs" style="display: none;">
+    <h2>Các Labs</h2>
+    <ul>
+        <li>Lab 1</li>
+        <li>Lab 2</li>
+        <li>Lab 3</li>
+        <li>Lab 4</li>
+    </ul>
+</div>
+
+<script>
+    function showSection(section) {
+        const sections = document.querySelectorAll('.content');
+        sections.forEach((sec) => {
+            sec.style.display = 'none'; // Ẩn tất cả các phần
+        });
+        document.getElementById(section).style.display = 'block'; // Hiển thị phần được chọn
+    }
+</script>
+
+</body>
+</html>
